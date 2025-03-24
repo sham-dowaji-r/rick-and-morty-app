@@ -5,17 +5,23 @@ const cardContainer = document.querySelector('[data-js="card-container"]');
 const paginationElement = document.querySelector('[data-js="pagination"]');
 const prevButton = document.querySelector('[data-js="button-prev"]');
 const nextButton = document.querySelector('[data-js="button-next"]');
-
+const searchBar = document.querySelector(".search-bar__input");
+const searchForm = document.querySelector('[data-js="search-bar"]');
 // fetchCharacters(cardContainer, createCharacterCard, paginationElement);
 
 let maxPage = 1;
 let page = 1;
-
+let searchQuery = " ";
 async function fetchCharacters() {
   try {
-    const characters = await fetch(
-      `https://rickandmortyapi.com/api/character?page=${page}`
-    );
+    let url;
+    if (searchQuery) {
+      url = `https://rickandmortyapi.com/api/character?page=${page}&name=${searchQuery}`;
+    } else {
+      url = `https://rickandmortyapi.com/api/character?page=${page}`;
+    }
+
+    const characters = await fetch(url);
 
     if (!characters.ok) {
       throw new Error("error");
@@ -57,6 +63,15 @@ function setupButtonListeners(prevButton, nextButton) {
     }
   });
 }
+
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  searchQuery = searchBar.value;
+  page = 1;
+
+  fetchCharacters();
+});
+
 setupButtonListeners(
   prevButton,
   nextButton,
