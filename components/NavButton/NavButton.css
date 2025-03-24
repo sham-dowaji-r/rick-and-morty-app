@@ -1,7 +1,17 @@
 .button {
+  background: var(--neon-green);
+  color: var(--color-primary);
+  font-weight: bold;
   border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px var(--neon-green);
 }
 
 .button:hover {
-  background-color: var(--color-secondary);
+  background: var(--neon-hover);
+  box-shadow: 0 0 20px rgba(0, 255, 153, 0.8);
+  transform: scale(1.1);
 }

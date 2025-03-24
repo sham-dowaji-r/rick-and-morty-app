@@ -7,26 +7,57 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  align-items: center;
+}
+h1 {
+  text-align: center;
 }
 
 :root {
-  --color-primary: rgb(51, 51, 51);
-  --color-secondary: var(--color-secondary);
-  --font-family: system-ui;
+  --color-primary: #0f0f0f;
+  --color-secondary: #f6f6f6;
+  --font-family: "Orbitron", sans-serif;
+  --second-font: "Press Start 2P", cursive;
+  --neon-green: #00ff99;
+  --neon-green-dark: #00cc77;
+  --bg-color: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  --card-bg: linear-gradient(145deg, #1b1b2f, #222a40);
 }
 
 body {
   font-family: var(--font-family);
-  color: darkgreen;
+  color: var(--color-secondary);
   padding: 20px;
+  background: url("https://www.transparenttextures.com/patterns/stardust.png"),
+    var(--bg-color);
+  animation: fadeIn 1s ease-in-out;
 }
-
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 main {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 
 .title {
-  padding: 10px 0;
+  padding: 15px 0;
+  font-family: var(--second-font);
+  color: var(--neon-green);
+  text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green-dark);
+  animation: neonGlow 1 infinite alternate;
+}
+@keyframes neonGlow {
+  from {
+    text-shadow: 3px 3px 15px rgba(0, 255, 153, 0.8), 0 0 10px #00ff99;
+  }
+  to {
+    text-shadow: 3px 3px 30px rgba(0, 255, 153, 1), 0 0 20px #00cc77;
+  }
 }
