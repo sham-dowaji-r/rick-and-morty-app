@@ -43,8 +43,8 @@
   font-size: 1.4rem;
   color: var(--neon-green);
   text-shadow: 0 0 5px var(--neon-green-dark);
-  white-space: nowrap; /* منع النص من الانكسار */
-  overflow: hidden; /* إخفاء أي جزء من النص الذي يتجاوز المساحة */
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
@@ -53,10 +53,9 @@
   text-align: left;
   font-size: 1rem;
   padding: 20px;
-  white-space: nowrap; /* منع النص من الانكسار */
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-family: "Times New Roman", Times, serif;
 }
 
 li {
